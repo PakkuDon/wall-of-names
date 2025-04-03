@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const render = () => {
     const titleValue = titleInput.value.trim()
-    const names = namesInput.value.trim().split("\n")
+    const names = namesInput.value.trim().split("\n").filter(value => !!value)
 
     titleOutput.textContent = titleValue
     const listItems = names.map(name => {
