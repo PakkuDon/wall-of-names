@@ -4,32 +4,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Wall of Names</title>
 </head>
 
-<body>
-  <h1 id="list-title">Wall of Names</h1>
-  <section id="list-config">
-    <div>
-      <label for="title-input">List title: </label>
-      <input id="title-input" type="text" />
-    </div>
-    <div>
-      <label for="names-input">Names:</label>
-      <textarea id="names-input"></textarea>
-    </div>
-  </section>
-  <section id="list-view">
-    <div>
-      <label for="date-input">Select date: </label>
-      <input id="date-input" type="date" />
-    </div>
-    <div>
-      Host: <span id="current-host"></span>
-    </div>
-    <span>Backup hosts</span>
-    <ul id="names"></ul>
-  </section>
+<body class="h-screen flex items-center justify-center flex-col p-8">
+  <h1 id="list-title" class="text-3xl font-bold">Wall of Names</h1>
+  <main class="flex gap-8 py-8">
+    <section id="list-config">
+      <div class="mb-4">
+        <label for="title-input" class="font-bold mr-2">List title </label>
+        <input id="title-input" class="rounded-md outline-1 outline-gray-300" type="text" />
+      </div>
+      <div class="mb-4">
+        <label for="names-input" class="font-bold align-top mr-2">Names </label>
+        <textarea id="names-input" class="rounded-md outline-1 outline-gray-300" rows="8"></textarea>
+      </div>
+    </section>
+    <section id="list-view">
+      <div class="mb-4">
+        <label for="date-input" class="font-bold mr-2">Select date </label>
+        <input id="date-input" type="date" class="rounded-md outline-1 outline-gray-300" />
+      </div>
+      <div class="mb-4 text-xl">
+        <span class="font-bold">Host:</span> <span id="current-host"></span>
+      </div>
+      <span class="font-bold">Backup hosts</span>
+      <ul id="names" class="list-disc list-inside"></ul>
+    </section>
+  </main>
 
   <script src="./script.js"></script>
 </body>
