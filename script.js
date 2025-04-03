@@ -5,22 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const namesOutput = document.querySelector("#names")
 
   const render = () => {
-    const titleValue = titleInput.value.trim()
+    const title = titleInput.value.trim()
     const names = namesInput.value.trim().split("\n").filter(value => !!value)
 
-    titleOutput.textContent = titleValue
+    // Render input in list view
+    titleOutput.textContent = title
     const listItems = names.map(name => {
       const li = document.createElement("li")
       li.textContent = name
       return li
     })
-
     namesOutput.replaceChildren(...listItems)
 
     // Update URL
     const url = new URL(window.location)
-    const encodedInput = btoa([titleValue, ...names].join(";"))
-    url.searchParams.set("id", encodedInput)
+    const encoded = btoa([title, ...names].join(";"))
+    url.searchParams.set("id", encoded)
     window.history.pushState({},  "", url)
   }
 
