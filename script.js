@@ -1,16 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.querySelector("#title-input")
   const namesInput = document.querySelector("#names-input")
+  const dateInput = document.querySelector("#date-input")
   const titleOutput = document.querySelector("#list-title")
   const namesOutput = document.querySelector("#names")
 
   const render = () => {
     const title = titleInput.value.trim()
     const names = namesInput.value.trim().split("\n").filter(value => !!value)
+    const date = new Date(dateInput.value)
+
+    // Shuffle names by current date % list length to get today's list order
+    // This ensures a new host is selected each day and that the list order stays consistent
+    const daysSinceEpoch = Math.floor(date / (1000 * 60 * 60 * 24))
+    const sortedNames = [...names]
+    if (sortedNames.length > 0) {
+      for (let i = 0; i < daysSinceEpoch % names.length; i++) {
+        sortedNames.push(sortedNames.shift())
+      }
+    }
 
     // Render input in list view
     titleOutput.textContent = title
-    const listItems = names.map(name => {
+    const listItems = sortedNames.map(name => {
       const li = document.createElement("li")
       li.textContent = name
       return li
@@ -23,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     url.searchParams.set("id", encoded)
     window.history.pushState({},  "", url)
   }
+
+  // Set date picker to today
+  dateInput.valueAsDate = new Date()
 
   // Load state from URL if present
   const searchQuery = new URLSearchParams(location.search)
@@ -39,4 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update page when input is updated
   titleInput.addEventListener("input", render)
   namesInput.addEventListener("input", render)
+  dateInput.addEventListener("input", render)
 })
