@@ -60,10 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sharks for decoration
   const sharks = []
-  for (let i = 0; i < 10; i++) {
+  const sharksToSpawn = Math.floor(Math.random() * 5) + 10
+  for (let i = 0; i < sharksToSpawn; i++) {
+    const dX = i % 2 === 0 ? 1 : -1
+    const dY = i % 2 === 0 ? 1 : -1
     sharks.push({
       x: Math.floor(Math.random() * window.innerWidth),
       y: Math.floor(Math.random() * window.innerHeight),
+      dX: dX * (Math.floor(Math.random() * 20) + 20),
+      dY: dY * (Math.floor(Math.random() * 20) + 20),
     })
   }
 
@@ -75,5 +80,35 @@ document.addEventListener("DOMContentLoaded", () => {
     elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
 
     document.body.appendChild(elem)
+    shark.elem = elem
   })
+
+  // Move sharks around
+  setInterval(() => {
+    sharks.forEach(shark => {
+      // If out of bounds flip direction and reset shark coordinates to boundary
+      if (shark.x < 0) {
+        shark.dX = Math.abs(shark.dX)
+        shark.x = 0
+      }
+      if (shark.x >= window.innerWidth) {
+        shark.dX = -shark.dX
+        shark.x = window.innerWidth
+      }
+      if (shark.y < 0) {
+        shark.dY = Math.abs(shark.dY)
+        shark.y = 0
+      }
+      if (shark.y >= window.innerHeight) {
+        shark.dY = -shark.dY
+        shark.y = window.innerHeight
+      }
+
+      shark.x += shark.dX
+      shark.y += shark.dY
+      shark.elem.style.top = `${shark.y}px`
+      shark.elem.style.left = `${shark.x}px`
+
+    })
+  }, 500)
 })
