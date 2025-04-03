@@ -8,11 +8,11 @@
 </head>
 
 <body>
-  <h1>List title</h1>
+  <h1 id="list-title">Wall of Names</h1>
   <section id="list-config">
     <div>
-      <label for="list-title-input">List title: </label>
-      <input id="list-title-input" type="text" />
+      <label for="title-input">List title: </label>
+      <input id="title-input" type="text" />
     </div>
     <div>
       <label for="names-input">Names:</label>
@@ -20,12 +20,10 @@
     </div>
   </section>
   <section id="list-view">
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
+    <ul id="names"></ul>
   </section>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
