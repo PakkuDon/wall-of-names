@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elem.className = "shark"
     elem.style.top = `${shark.y}px`
     elem.style.left = `${shark.x}px`
+    elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
 
     document.body.appendChild(elem)
   })
