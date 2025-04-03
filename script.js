@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const namesInput = document.querySelector("#names-input")
   const dateInput = document.querySelector("#date-input")
   const titleOutput = document.querySelector("#list-title")
-  const namesOutput = document.querySelector("#names")
+  const hostOutput = document.querySelector("#current-host")
+  const backupsOutput = document.querySelector("#names")
 
   const render = () => {
     const title = titleInput.value.trim()
@@ -22,12 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render input in list view
     titleOutput.textContent = title
-    const listItems = sortedNames.map(name => {
+    hostOutput.textContent = sortedNames[0]
+    const listItems = sortedNames.slice(1).map(name => {
       const li = document.createElement("li")
       li.textContent = name
       return li
     })
-    namesOutput.replaceChildren(...listItems)
+    backupsOutput.replaceChildren(...listItems)
 
     // Update URL
     const url = new URL(window.location)
