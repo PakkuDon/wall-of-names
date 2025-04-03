@@ -57,4 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
   titleInput.addEventListener("input", render)
   namesInput.addEventListener("input", render)
   dateInput.addEventListener("input", render)
+
+  // Sharks for decoration
+  const sharks = []
+  for (let i = 0; i < 10; i++) {
+    sharks.push({
+      x: Math.floor(Math.random() * window.innerWidth),
+      y: Math.floor(Math.random() * window.innerHeight),
+    })
+  }
+
+  sharks.forEach(shark => {
+    const elem = document.createElement("div")
+    elem.className = "shark"
+    elem.style.top = `${shark.y}px`
+    elem.style.left = `${shark.x}px`
+
+    document.body.appendChild(elem)
+  })
 })
