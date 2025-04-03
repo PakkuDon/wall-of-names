@@ -24,6 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
     window.history.pushState({},  "", url)
   }
 
+  // Load state from URL if present
+  const searchQuery = new URLSearchParams(location.search)
+  const id = searchQuery.get("id")
+  if (id) {
+    const decoded = atob(id)
+    const [title, ...names] = decoded.split(";")
+    titleInput.value = title
+    namesInput.value = names.join("\n")
+
+    render()
+  }
+
   // Update page when input is updated
   titleInput.addEventListener("input", render)
   namesInput.addEventListener("input", render)
