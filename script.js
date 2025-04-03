@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     namesOutput.replaceChildren(...listItems)
+
+    // Update URL
+    const url = new URL(window.location)
+    const encodedInput = btoa([titleValue, ...names].join(";"))
+    url.searchParams.set("id", encodedInput)
+    window.history.pushState({},  "", url)
   }
 
   // Update page when input is updated
