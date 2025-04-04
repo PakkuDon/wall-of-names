@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sharks.forEach(shark => {
     const elem = document.createElement("div")
-    elem.className = "shark"
+    elem.className = "shark text-2xl"
     elem.style.top = `${shark.y}px`
     elem.style.left = `${shark.x}px`
     elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
