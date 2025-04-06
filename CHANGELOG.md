@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add button to spawn more sharks
+
 ### Fixed
 
 - Fix issue where sharks are flung across screen if tab is put in background
