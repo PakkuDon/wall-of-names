@@ -84,31 +84,41 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Move sharks around
-  setInterval(() => {
-    sharks.forEach(shark => {
-      // If out of bounds flip direction and reset shark coordinates to boundary
-      if (shark.x < 0) {
-        shark.dX = Math.abs(shark.dX)
-        shark.x = 0
-      }
-      if (shark.x >= window.innerWidth) {
-        shark.dX = -shark.dX
-        shark.x = window.innerWidth
-      }
-      if (shark.y < 0) {
-        shark.dY = Math.abs(shark.dY)
-        shark.y = 0
-      }
-      if (shark.y >= window.innerHeight) {
-        shark.dY = -shark.dY
-        shark.y = window.innerHeight
-      }
+  let lastTick = new Date().getTime()
+  const moveSharks = () => {
+    const now = new Date().getTime()
+    if (now - lastTick > 500) {
+      sharks.forEach(shark => {
+        // If out of bounds flip direction and reset shark coordinates to boundary
+        if (shark.x < 0) {
+          shark.dX = Math.abs(shark.dX)
+          shark.x = 0
+        }
+        if (shark.x >= window.innerWidth) {
+          shark.dX = -shark.dX
+          shark.x = window.innerWidth
+        }
+        if (shark.y < 0) {
+          shark.dY = Math.abs(shark.dY)
+          shark.y = 0
+        }
+        if (shark.y >= window.innerHeight) {
+          shark.dY = -shark.dY
+          shark.y = window.innerHeight
+        }
+  
+        shark.x += shark.dX
+        shark.y += shark.dY
+        shark.elem.style.top = `${shark.y}px`
+        shark.elem.style.left = `${shark.x}px`
+  
+      })
 
-      shark.x += shark.dX
-      shark.y += shark.dY
-      shark.elem.style.top = `${shark.y}px`
-      shark.elem.style.left = `${shark.x}px`
+      lastTick = now
+    }
 
-    })
-  }, 500)
+    requestAnimationFrame(moveSharks)
+  }
+
+  requestAnimationFrame(moveSharks)
 })
