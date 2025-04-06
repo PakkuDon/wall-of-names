@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Move sharks around
-  let lastTick = new Date().getTime()
+  let lastTick = 0
   const moveSharks = () => {
     const now = new Date().getTime()
     if (now - lastTick > 500) {

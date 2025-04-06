@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix issue where sharks are flung across screen if tab is put in background
 - Prevent sharks from blocking click events
+- Reduce delay on shark floating animation at page load
 
 ## [1.0.3] - 2025-04-05
 
