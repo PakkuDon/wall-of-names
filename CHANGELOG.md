@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix issue where sharks are flung across screen if tab is put in background
+- Prevent sharks from blocking click events
 
 ## [1.0.3] - 2025-04-05
 
