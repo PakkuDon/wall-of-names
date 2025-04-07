@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleOutput = document.querySelector("#list-title")
   const hostOutput = document.querySelector("#current-host")
   const backupsOutput = document.querySelector("#names")
+  const spawnButton = document.querySelector("#shark-button")
 
   const render = () => {
     const title = titleInput.value.trim()
@@ -120,27 +121,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   requestAnimationFrame(moveSharks)
 
-  // Spawn sharks on button click
-  document.querySelector("#shark-button").addEventListener("click", (event) => {
-    // Fallback to random value if mouse event has 0 x / y coordinate
-    // This can occur if click event is triggered by keyboard
-    const x = event.clientX || Math.floor(Math.random() * window.innerWidth)
-    const y = event.clientY || Math.floor(Math.random() * window.innerHeight)
-    const shark = {
-      x,
-      y,
-      dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
-      dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+  let spawnButtonHeld = false
+  let lastSpawn = Date.now()
+  let clickX = 0
+  let clickY = 0
+  const spawnShark = () => {
+    // Spawn sharks as long as button is held
+    // Apply few ms buffer between spawns
+    if (spawnButtonHeld && (Date.now() - lastSpawn) > 20) {
+      lastSpawn = Date.now()
+      // Fallback to random value if mouse event has 0 x / y coordinate
+      // This can occur if click event is triggered by keyboard
+      const x = clickX || Math.floor(Math.random() * window.innerWidth)
+      const y = clickY || Math.floor(Math.random() * window.innerHeight)
+      const shark = {
+        x,
+        y,
+        dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+        dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+      }
+
+      const elem = document.createElement("div")
+      elem.className = "shark text-2xl"
+      elem.style.top = `${shark.y}px`
+      elem.style.left = `${shark.x}px`
+      elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
+
+      shark.elem = elem
+      sharks.push(shark)
+      document.body.appendChild(elem)
     }
 
-    const elem = document.createElement("div")
-    elem.className = "shark text-2xl"
-    elem.style.top = `${shark.y}px`
-    elem.style.left = `${shark.x}px`
-    elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
+    requestAnimationFrame(spawnShark)
+  }
+  // Start spawn loop
+  requestAnimationFrame(spawnShark)
 
-    shark.elem = elem
-    sharks.push(shark)
-    document.body.appendChild(elem)
+  // Keep spawning sharks as long as button is held
+  spawnButton.addEventListener("mousedown", (event) => {
+    clickX = event.clientX
+    clickY = event.clientY
+    spawnButtonHeld = true
   })
+  spawnButton.addEventListener("keydown", (event) => {
+    if (event.key === " ") {
+      clickX = 0
+      clickY = 0
+      spawnButtonHeld = true
+    }
+  })
+  spawnButton.addEventListener("touchstart", (event) => {
+    console.log(event)
+    const touch = event.touches[0]
+    if (touch) {
+      clickX = touch.clientX
+      clickY = touch.clientY
+      spawnButtonHeld = true
+    }
+  })
+
+  // Stop spawning sharks when button released
+  spawnButton.addEventListener("mouseup", () => { spawnButtonHeld = false })
+  spawnButton.addEventListener("keyup", () => { spawnButtonHeld = false })
+  spawnButton.addEventListener("touchend", () => { spawnButtonHeld = false })
 })
