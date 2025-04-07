@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hostOutput = document.querySelector("#current-host")
   const backupsOutput = document.querySelector("#names")
   const spawnButton = document.querySelector("#shark-button")
+  const copyButton = document.querySelector("#copy-button")
 
   const render = () => {
     const title = titleInput.value.trim()
@@ -184,4 +185,19 @@ document.addEventListener("DOMContentLoaded", () => {
   spawnButton.addEventListener("mouseup", () => { spawnButtonHeld = false })
   spawnButton.addEventListener("keyup", () => { spawnButtonHeld = false })
   spawnButton.addEventListener("touchend", () => { spawnButtonHeld = false })
+
+  // Copy list URL to clipboard
+  const defaultCopyButtonText = copyButton.textContent
+  let confirmationMessageTimeoutId
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(location.href)
+      .then(() => {
+        // Display confirmation message for copy
+        copyButton.textContent = "Copied! ✅"
+        clearTimeout(confirmationMessageTimeoutId)
+        confirmationMessageTimeoutId = setTimeout(() => {
+          copyButton.textContent = defaultCopyButtonText
+        }, 1000)
+      })
+  })
 })
