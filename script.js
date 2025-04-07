@@ -180,6 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
       spawnButtonHeld = true
     }
   })
+  spawnButton.addEventListener("touchmove", (event) => {
+    const touch = event.touches[0]
+    if (touch) {
+      clickX = touch.clientX
+      clickY = touch.clientY
+    }
+  })
 
   // Stop spawning sharks when button released
   spawnButton.addEventListener("mouseup", () => { spawnButtonHeld = false })
