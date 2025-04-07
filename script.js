@@ -62,13 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sharks = []
   const sharksToSpawn = Math.floor(Math.random() * 5) + 10
   for (let i = 0; i < sharksToSpawn; i++) {
-    const dX = i % 2 === 0 ? 1 : -1
-    const dY = i % 2 === 0 ? 1 : -1
     sharks.push({
       x: Math.floor(Math.random() * window.innerWidth),
       y: Math.floor(Math.random() * window.innerHeight),
-      dX: dX * (Math.floor(Math.random() * 20) + 20),
-      dY: dY * (Math.floor(Math.random() * 20) + 20),
+      dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+      dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
     })
   }
 
@@ -124,9 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Spawn sharks on button click
   document.querySelector("#shark-button").addEventListener("click", (event) => {
-    const dX = sharks.length % 2 === 0 ? 1 : -1
-    const dY = sharks.length % 2 === 0 ? 1 : -1
-
     // Fallback to random value if mouse event has 0 x / y coordinate
     // This can occur if click event is triggered by keyboard
     const x = event.clientX || Math.floor(Math.random() * window.innerWidth)
@@ -134,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const shark = {
       x,
       y,
-      dX: dX * (Math.floor(Math.random() * 20) + 20),
-      dY: dY * (Math.floor(Math.random() * 20) + 20),
+      dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+      dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
     }
 
     const elem = document.createElement("div")
