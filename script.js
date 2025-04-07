@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
   spawnButton.addEventListener("touchstart", (event) => {
-    console.log(event)
     const touch = event.touches[0]
     if (touch) {
       clickX = touch.clientX
