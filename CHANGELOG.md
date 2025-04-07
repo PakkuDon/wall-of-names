@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Keep spawning sharks while spawn button is held
+- Increase range of potential movement speed for sharks (now 10 - 60, was previously 20 - 40)
 
 ### Fixed
 

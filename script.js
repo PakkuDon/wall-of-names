@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
     sharks.push({
       x: Math.floor(Math.random() * window.innerWidth),
       y: Math.floor(Math.random() * window.innerHeight),
-      dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
-      dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+      dX: (Math.floor(Math.random() * 50) + 10) * (Math.random() > 0.5 ? 1 : -1),
+      dY: (Math.floor(Math.random() * 50) + 10) * (Math.random() > 0.5 ? 1 : -1),
     })
   }
 
@@ -137,8 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const shark = {
         x,
         y,
-        dX: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
-        dY: (Math.floor(Math.random() * 20) + 20) * (Math.random() > 0.5 ? 1 : -1),
+        dX: (Math.floor(Math.random() * 50) + 10) * (Math.random() > 0.5 ? 1 : -1),
+        dY: (Math.floor(Math.random() * 50) + 10) * (Math.random() > 0.5 ? 1 : -1),
       }
 
       const elem = document.createElement("div")
