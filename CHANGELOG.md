@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Spawn sharks from coordinate of last touch
 
+### Fixed
+
+- Fix issue where shark would bounce when out of bounds due to direction constantly being inverted
+
 ## [1.1.2] - 2025-04-07
 
 ### Added

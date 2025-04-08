@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
           shark.x = 0
         }
         if (shark.x >= window.innerWidth) {
-          shark.dX = -shark.dX
+          shark.dX = -Math.abs(shark.dX)
           shark.x = window.innerWidth
         }
         if (shark.y < 0) {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
           shark.y = 0
         }
         if (shark.y >= window.innerHeight) {
-          shark.dY = -shark.dY
+          shark.dY = -Math.abs(shark.dY)
           shark.y = window.innerHeight
         }
   
