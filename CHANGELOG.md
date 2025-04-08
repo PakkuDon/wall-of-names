@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix issue where shark would bounce when out of bounds due to direction constantly being inverted
+- Initialise date picker to today's date in local, not UTC time
 
 ## [1.1.2] - 2025-04-07
 

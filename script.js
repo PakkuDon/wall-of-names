@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Set date picker to today
-  dateInput.valueAsDate = new Date()
+  // Don't use toISOString as this excludes the timezone
+  const today = new Date()
+  dateInput.value = `${today.getFullYear().toString().padStart(4, '0')}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`
 
   // Load state from URL if present
   const searchQuery = new URLSearchParams(location.search)
