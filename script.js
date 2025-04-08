@@ -168,8 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   spawnButton.addEventListener("keydown", (event) => {
     if (event.key === " ") {
-      clickX = 0
-      clickY = 0
+      const { width, height, top, left } = event.target.getBoundingClientRect()
+      clickX = Math.floor(left + Math.random() * width)
+      clickY = Math.floor(top + Math.random() * height)
       spawnButtonHeld = true
     }
   })

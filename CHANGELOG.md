@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Spawn sharks from coordinate of last touch
+- If spawn button activated by Space key spawn new shark from button rather than picking a random location
 
 ### Fixed
 
