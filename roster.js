@@ -32,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     backupsOutput.replaceChildren(...listItems)
 
+    // Set page title
+    document.title = `${title} - Wall of Names`
+
     // Update URL
     const url = new URL(window.location)
     const encoded = btoa([title, ...names].join(";"))
