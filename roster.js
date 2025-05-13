@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render input in list view
-    titleOutput.textContent = title
+    if (title) {
+      titleOutput.textContent = title
+    }
+    else {
+      titleOutput.textContent = "Wall of Names"
+    }
     hostOutput.textContent = sortedNames[0]
     const listItems = sortedNames.slice(1).map(name => {
       const li = document.createElement("li")
