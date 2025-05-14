@@ -38,7 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     backupsOutput.replaceChildren(...listItems)
 
     // Set page title
-    document.title = `${title} - Wall of Names`
+    if (title) {
+      document.title = `${title} - Wall of Names`
+    }
+    else {
+      document.title = `Wall of Names`
+    }
 
     // Update URL
     const url = new URL(window.location)

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Updated
 
 - Reset list title to "Wall of Names" if title is blank
+- Remove " - " prefix from document title if list title is blank
 
 ## [1.1.4] - 2025-05-12
 
