@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const spawnButton = document.querySelector("#shark-button")
+  const sharkCounter = document.querySelector("#shark-counter")
 
   // Initialise shark x,y and velocity values
   const sharks = []
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sharks.push(shark)
       document.body.appendChild(elem)
     }
+    sharkCounter.textContent = `${sharks.length} sharks`
 
     requestAnimationFrame(spawnShark)
   }

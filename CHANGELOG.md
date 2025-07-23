@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Add shark counter
+
 ## Updated
 
 - Reset list title to "Wall of Names" if title is blank
