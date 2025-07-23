@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastSpawn = Date.now()
   let clickX = 0
   let clickY = 0
+  const availableSizes = ["md", "lg", "xl", "2xl", "3xl"]
   const spawnShark = () => {
     // Spawn sharks as long as button is held
     // Apply few ms buffer between spawns
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // This can occur if click event is triggered by keyboard
       const x = clickX || Math.floor(Math.random() * window.innerWidth)
       const y = clickY || Math.floor(Math.random() * window.innerHeight)
+      const size = availableSizes[Math.floor(Math.random() * availableSizes.length)]
       const shark = {
         x,
         y,
@@ -85,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const elem = document.createElement("div")
-      elem.className = "shark text-2xl"
+      elem.className = `shark text-${size}`
       elem.style.top = `${shark.y}px`
       elem.style.left = `${shark.x}px`
       elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
