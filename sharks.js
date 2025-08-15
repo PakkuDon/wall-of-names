@@ -1,3 +1,7 @@
+// Note: This app previously featured a whole bunch of sharks floating around
+// The sharks can now be swapped out with other emojis. I wasn't sure what to
+// call these objects so I've started referring to them as 'friends'
+
 document.addEventListener("DOMContentLoaded", () => {
   const spawnButton = document.querySelector("#shark-button")
   const friendCounter = document.querySelector("#shark-counter")
