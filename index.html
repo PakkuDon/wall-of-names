@@ -11,21 +11,21 @@
       --selectedFriend: "🦈";
     }
 
-    .shark {
+    .friend {
       position: absolute;
       transition: top 1s linear, left 1s linear;
       pointer-events: none;
     }
 
-    .shark::before {
+    .friend::before {
       content: var(--selectedFriend);
     }
 
-    .shark:nth-of-type(odd) {
+    .friend:nth-of-type(odd) {
       animation: clockwise 5s linear infinite;
     }
 
-    .shark:nth-of-type(even) {
+    .friend:nth-of-type(even) {
       animation: counterclockwise 5s linear infinite;
     }
 
@@ -81,10 +81,10 @@
       </section>
     </main>
     <section class="pb-4">
-      <button id="shark-button" class="rounded-md font-bold bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 active:inset-shadow-sm/75 text-white px-4 py-2">Add shark 🦈</button>
+      <button id="spawn-button" class="rounded-md font-bold bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 active:inset-shadow-sm/75 text-white px-4 py-2">Add shark 🦈</button>
     </section>
     <footer>
-      <p class="text-center" id="shark-counter"></p>
+      <p class="text-center" id="friend-counter"></p>
       <ul>
         <li class="inline-block"><a href="https://github.com/PakkuDon/wall-of-names/blob/main/CHANGELOG.md"
             target="_blank" class="underline hover:no-underline">Changelog</a></li>

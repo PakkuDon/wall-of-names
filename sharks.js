@@ -3,8 +3,8 @@
 // call these objects so I've started referring to them as 'friends'
 
 document.addEventListener("DOMContentLoaded", () => {
-  const spawnButton = document.querySelector("#shark-button")
-  const friendCounter = document.querySelector("#shark-counter")
+  const spawnButton = document.querySelector("#spawn-button")
+  const friendCounter = document.querySelector("#friend-counter")
 
   // Initialise friend x,y and velocity values
   const friends = []
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add friends to page
   friends.forEach(friend => {
     const elem = document.createElement("div")
-    elem.className = "shark text-2xl"
+    elem.className = "friend text-2xl"
     elem.style.top = `${friend.y}px`
     elem.style.left = `${friend.x}px`
     elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const elem = document.createElement("div")
-      elem.className = `shark text-${size}`
+      elem.className = `friend text-${size}`
       elem.style.top = `${friend.y}px`
       elem.style.left = `${friend.x}px`
       elem.style.animationDuration = `${Math.floor((Math.random() * 5) + 1)}s`
