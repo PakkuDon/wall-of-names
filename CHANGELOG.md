@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Add emoji picker so user can replace sharks with other emojis
+
 ## Updated
 
 - Replace references to 'sharks' with 'friends' as sharks may be replaced with other emojis

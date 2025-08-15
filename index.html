@@ -82,9 +82,13 @@
     </main>
     <section class="pb-4">
       <button id="spawn-button" class="rounded-md font-bold bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 active:inset-shadow-sm/75 text-white px-4 py-2">Add shark 🦈</button>
+      <button popovertarget="emoji-picker" class="rounded-md font-bold bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 active:inset-shadow-sm/75 text-white px-4 py-2">Select friend</button>
     </section>
     <footer>
       <p class="text-center" id="friend-counter"></p>
+      <div popover id="emoji-picker">
+        <emoji-picker></emoji-picker>
+      </div>
       <ul>
         <li class="inline-block"><a href="https://github.com/PakkuDon/wall-of-names/blob/main/CHANGELOG.md"
             target="_blank" class="underline hover:no-underline">Changelog</a></li>
@@ -94,6 +98,7 @@
     </footer>
 
   </div>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
   <script src="./roster.js"></script>
   <script src="./friends.js"></script>
 </body>
