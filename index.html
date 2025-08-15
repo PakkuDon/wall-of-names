@@ -7,6 +7,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Wall of Names</title>
   <style>
+    :root {
+      --selectedFriend: "🦈";
+    }
+
     .shark {
       position: absolute;
       transition: top 1s linear, left 1s linear;
@@ -14,7 +18,7 @@
     }
 
     .shark::before {
-      content: "🦈";
+      content: var(--selectedFriend);
     }
 
     .shark:nth-of-type(odd) {
