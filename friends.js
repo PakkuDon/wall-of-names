@@ -142,10 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
   spawnButton.addEventListener("mouseup", () => { spawnButtonHeld = false })
   spawnButton.addEventListener("keyup", () => { spawnButtonHeld = false })
   spawnButton.addEventListener("touchend", () => { spawnButtonHeld = false })
-})
 
-// Change emoji when new emoji selected
-document.querySelector('emoji-picker')
-  .addEventListener('emoji-click', (event) => {
-    document.body.style.setProperty("--selectedFriend", `"${event.detail.unicode}"`)
-  })
+  // Change emoji when new emoji selected
+  document.querySelector('emoji-picker')
+    .addEventListener('emoji-click', (event) => {
+      document.body.style.setProperty("--selectedFriend", `"${event.detail.unicode}"`)
+    })
+})
