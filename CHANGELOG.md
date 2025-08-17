@@ -9,21 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.0] - 2025-08-16
 
-## Added
+### Added
 
 - Add emoji picker so user can replace sharks with other emojis
 
-## Updated
+### Updated
 
 - Replace references to 'sharks' with 'friends' as sharks may be replaced with other emojis
 
 ## [1.1.5] - 2025-07-24
 
-## Added
+### Added
 
 - Add shark counter
 
-## Updated
+### Updated
 
 - Reset list title to "Wall of Names" if title is blank
 - Remove " - " prefix from document title if list title is blank
