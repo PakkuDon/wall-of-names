@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Show currently selected emoji on "Add" button
+- Set "Add" and "Select friend" buttons to equal width
 
 ## [1.2.0] - 2025-08-16
 
