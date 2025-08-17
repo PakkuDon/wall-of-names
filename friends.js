@@ -147,5 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('emoji-picker')
     .addEventListener('emoji-click', (event) => {
       document.body.style.setProperty("--selectedFriend", `"${event.detail.unicode}"`)
+      spawnButton.textContent = `Add ${event.detail.unicode}`
     })
 })
