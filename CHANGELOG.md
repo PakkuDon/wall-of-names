@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update layout to display list or edit view only
 - Display list view by default if id param present
 - Display edit view by default if no id param specified
+- Set fixed height and overflow for roster
 
 ## [1.2.1] - 2025-08-18
 
