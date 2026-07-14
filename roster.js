@@ -6,6 +6,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const hostOutput = document.querySelector("#current-host")
   const backupsOutput = document.querySelector("#names")
   const copyButton = document.querySelector("#copy-button")
+  const editListButton = document.querySelector("#edit-button")
+  const viewListButton = document.querySelector("#view-button")
+  const editView = document.querySelector("#list-config")
+  const listView = document.querySelector("#list-view")
+
+  const showListView = () => {
+    listView.style.display = "block"
+    editView.style.display = "none"
+    editListButton.style.display = "inline-block"
+    viewListButton.style.display = "none"
+  }
+
+  const showEditView = () => {
+    listView.style.display = "none"
+    editView.style.display = "block"
+    editListButton.style.display = "none"
+    viewListButton.style.display = "inline-block"
+  }
 
   const render = () => {
     const title = titleInput.value.trim()
@@ -61,18 +79,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchQuery = new URLSearchParams(location.search)
   const id = searchQuery.get("id")
   if (id) {
+    // Default to list view if ID present
+    showListView()
+
+    // Parse lists and display standup roster
     const decoded = atob(id)
     const [title, ...names] = decoded.split(";")
     titleInput.value = title
     namesInput.value = names.join("\n")
 
     render()
+  } else {
+    showEditView()
   }
 
   // Update page when input is updated
   titleInput.addEventListener("input", render)
   namesInput.addEventListener("input", render)
   dateInput.addEventListener("input", render)
+
+  // Toggle edit view
+  editListButton.addEventListener("click", showEditView)
+  viewListButton.addEventListener("click", showListView)
 
   // Copy list URL to clipboard
   const defaultCopyButtonText = copyButton.textContent
