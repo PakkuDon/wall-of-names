@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const listView = document.querySelector("#list-view")
 
   const showListView = () => {
-    listView.style.display = "block"
+    listView.style.display = "flex"
     editView.style.display = "none"
     editListButton.style.display = "inline-block"
     viewListButton.style.display = "none"
