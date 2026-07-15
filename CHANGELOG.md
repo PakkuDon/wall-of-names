@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix issue where edit and list view are both briefly visible on page load
+
 ## [1.3.0] - 2026-07-15
 
 ### Added

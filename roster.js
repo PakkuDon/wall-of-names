@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.querySelector("#copy-button")
   const editListButton = document.querySelector("#edit-button")
   const viewListButton = document.querySelector("#view-button")
+  const placeholderView = document.querySelector("#placeholder-panel")
   const editView = document.querySelector("#list-config")
   const listView = document.querySelector("#list-view")
 
@@ -92,6 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     showEditView()
   }
+  // Hide placeholder panel after initial render
+  placeholderView.style.display = "none"
 
   // Update page when input is updated
   titleInput.addEventListener("input", render)
@@ -116,4 +119,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000)
       })
   })
+
 })

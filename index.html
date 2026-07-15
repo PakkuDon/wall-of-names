@@ -11,10 +11,17 @@
       --selectedFriend: "🦈";
     }
 
+    #placeholder-panel,
     #list-config,
     #list-view {
       height: 250px;
       overflow: auto;
+    }
+
+    /* Hide list and edit views initially. Will be toggled on load */
+    #list-config,
+    #list-view {
+      display: none;
     }
 
     #list-view {
@@ -74,6 +81,7 @@
       <button id="view-button" class="rounded-md font-bold bg-gray-900 hover:bg-gray-700 focus:bg-gray-700 active:inset-shadow-sm/75 text-white px-4 py-2">View list 🔍</button>
     </section>
     <main class="flex gap-8 py-8">
+      <section id="placeholder-panel"></section>
       <section id="list-config">
         <div class="mb-4">
           <label for="title-input" class="font-bold mr-2">List title </label>
