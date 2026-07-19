@@ -1,3 +1,14 @@
+const State = {
+  parse: (stateString) => {
+    const decoded = atob(stateString)
+    const [title, ...names] = decoded.split(";")
+    return { title, names }
+  },
+  toString: (state) => {
+    return btoa([state.title, ...state.names].join(";"))
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.querySelector("#title-input")
   const namesInput = document.querySelector("#names-input")
@@ -66,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update URL
     const url = new URL(window.location)
-    const encoded = btoa([title, ...names].join(";"))
-    url.searchParams.set("id", encoded)
+    url.searchParams.set("id", State.toString({ title, names }))
     window.history.pushState({},  "", url)
   }
 
@@ -84,10 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
     showListView()
 
     // Parse lists and display standup roster
-    const decoded = atob(id)
-    const [title, ...names] = decoded.split(";")
-    titleInput.value = title
-    namesInput.value = names.join("\n")
+    const state = State.parse(id)
+    titleInput.value = state.title
+    namesInput.value = state.names.join("\n")
 
     render()
   } else {
