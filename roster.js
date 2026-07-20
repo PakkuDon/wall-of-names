@@ -1,11 +1,26 @@
 const State = {
   parse: (stateString) => {
-    const decoded = atob(stateString)
-    const [title, ...names] = decoded.split(";")
-    return { title, names }
+    try {
+      return JSON.parse(atob(stateString))
+    } catch (error) {
+      // If JSON parse failed fallback to previous state string structure (used until v1.3.2)
+      if (error instanceof SyntaxError) {
+        const decoded = atob(stateString)
+        const [title, ...names] = decoded.split(";")
+        return { title, names }
+      }
+      // Otherwise return default state object
+      return {
+        title: "",
+        names: [],
+      }
+    }
   },
-  toString: (state) => {
-    return btoa([state.title, ...state.names].join(";"))
+  toString: ({ title, names }) => {
+    return btoa(JSON.stringify({
+      title,
+      names,
+    }), null, 2)
   }
 }
 
