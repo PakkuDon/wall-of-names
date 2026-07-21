@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change format for id parameter from a Base64 encoded semicolon separated string to a Base64 JSON object
   - This change aims to provide a structure to make it easier to parse and update list config options in the future
 - Automatically convert any id parameters in previous format to new format
+- Increase whitespace around list and edit views
 
 ## [1.3.1] - 2026-07-16
 
