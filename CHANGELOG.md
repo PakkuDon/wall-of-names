@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-07-21
+
 ### Updated
 
 - Change format for id parameter from a Base64 encoded semicolon separated string to a Base64 JSON object
